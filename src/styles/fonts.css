@@ -13,3 +13,75 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'YoonGothicPro 715';
+  src: url('../assets/fonts/yoongothicpro-715.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 725';
+  src: url('../assets/fonts/yoongothicpro-725.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 735';
+  src: url('../assets/fonts/yoongothicpro-735.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 745';
+  src: url('../assets/fonts/yoongothicpro-745.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 755';
+  src: url('../assets/fonts/yoongothicpro-755.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 765';
+  src: url('../assets/fonts/yoongothicpro-765.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 775';
+  src: url('../assets/fonts/yoongothicpro-775.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 785';
+  src: url('../assets/fonts/yoongothicpro-785.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YoonGothicPro 795';
+  src: url('../assets/fonts/yoongothicpro-795.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
