@@ -5,6 +5,7 @@ import img03 from '../../assets/images/hero/03.jpg'
 import img04 from '../../assets/images/hero/04.jpg'
 import img05 from '../../assets/images/hero/05.jpg'
 import img06 from '../../assets/images/hero/06.jpg'
+import img07 from '../../assets/images/hero/07.jpg'
 import '../../styles/main-page.css'
 
 /**
@@ -31,6 +32,14 @@ const sections = [
   },
   {
     image: img03,
+    theme: 'dark',
+    align: 'center',
+    eyebrow: 'SIGNATURE PIECE',
+    title: 'Crystallized',
+    desc: '물방울이 응결되어 하나의 목걸이가 되다.',
+  },
+  {
+    image: img04,
     theme: 'light',
     align: 'left',
     eyebrow: 'SIGNATURE',
@@ -38,14 +47,14 @@ const sections = [
     desc: '흐르는 듯한 실루엣의 시그니처 라인.',
   },
   {
-    image: img04,
+    image: img05,
     theme: 'dark',
     align: 'center',
     title: 'Every Drop, A Detail',
     desc: '작은 물방울 하나까지, 완벽을 향한 집착.',
   },
   {
-    image: img05,
+    image: img06,
     theme: 'dark',
     align: 'left',
     eyebrow: 'FOR YOU',
@@ -53,7 +62,7 @@ const sections = [
     desc: '당신의 빛을 완성하는 주얼리.',
   },
   {
-    image: img06,
+    image: img07,
     theme: 'dark',
     align: 'center',
     eyebrow: 'NEW ARRIVAL',
