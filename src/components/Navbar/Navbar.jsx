@@ -24,7 +24,7 @@ function Navbar() {
         </ul>
 
         <a href="#top" className="navbar__brand">
-          안녕하세요
+          Nihilism
         </a>
 
         <ul className="navbar__menu navbar__menu--right">
