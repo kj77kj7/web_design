@@ -1,3 +1,4 @@
+import Navbar from '../Navbar/Navbar'
 import HeroSection from './HeroSection'
 import img01 from '../../assets/images/hero/01.jpg'
 import img02 from '../../assets/images/hero/02.jpg'
@@ -17,10 +18,18 @@ const sections = [
   {
     image: img01,
     theme: 'dark',
-    align: 'left',
-    eyebrow: 'NIHILISM',
-    title: 'Born from Water',
-    desc: '물에서 태어난 빛. 니힐리즘의 첫 번째 이야기.',
+    align: 'center',
+    vAlign: 'bottom',
+    eyebrow: '목걸이',
+    titleFont: 'kr',
+    title: (
+      <>
+        형태 없는 물결이 당신을 위해 빚어낸 단 하나의{' '}
+        <span className="font-serif">NECKLACE</span>
+      </>
+    ),
+    cta: '알아보기',
+    ctaVariant: 'link',
   },
   {
     image: img02,
@@ -75,6 +84,7 @@ const sections = [
 function MainPage() {
   return (
     <main className="main-page">
+      <Navbar />
       {sections.map((section, index) => (
         <HeroSection key={index} {...section} />
       ))}

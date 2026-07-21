@@ -1,0 +1,112 @@
+/* 상단 고정 메뉴바 - 스크롤 시 계속 따라옴 (텍스트: Baskerville) */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  color: var(--color-light);
+  /* 상단(히어로 위)에서는 투명 + 가독성용 상단 그라데이션 */
+  background: transparent;
+  transition:
+    background-color 0.4s ease,
+    backdrop-filter 0.4s ease,
+    border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* 스크롤 시 반투명 배경으로 전환 (밝은 섹션 위에서도 가독성 확보) */
+.navbar.is-scrolled {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+.navbar.is-scrolled::before {
+  opacity: 0;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: clamp(56px, 4.7vw, 76px);
+  padding: 0 clamp(24px, 2.5vw, 48px);
+  font-family: var(--font-display); /* Baskerville */
+}
+
+/* 좌/우 메뉴 */
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2vw, 40px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.navbar__menu--right {
+  justify-content: flex-end;
+  gap: clamp(14px, 1.4vw, 24px);
+}
+
+.navbar__menu a {
+  color: inherit;
+  text-decoration: none;
+  font-size: clamp(14px, 0.94vw, 18px);
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
+}
+.navbar__menu a:hover {
+  opacity: 1;
+}
+
+/* 중앙 브랜드 */
+.navbar__brand {
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-display); /* Baskerville */
+  font-size: clamp(22px, 1.9vw, 34px);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* 우측 아이콘 버튼 */
+.navbar__menu--right button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
+}
+.navbar__menu--right button:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .navbar__brand {
+    font-size: 22px;
+  }
+  .navbar__menu--left {
+    gap: 14px;
+  }
+  .navbar__menu a {
+    font-size: 13px;
+  }
+}
