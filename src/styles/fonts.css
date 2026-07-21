@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('../assets/fonts/times-new-roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Baskerville Old Face';
+  src: url('../assets/fonts/baskerville-old-face-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
