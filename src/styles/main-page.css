@@ -88,6 +88,16 @@ html {
   );
 }
 
+/* 밝은 배경에 흰 글씨(하단 캡션)를 얹는 경우: 중앙 비네트 없이 하단에만 옅은 스크림 */
+.hero-section--overlay-soft .hero-section__overlay,
+.hero-section--dark.hero-section--center.hero-section--overlay-soft .hero-section__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0) 55%,
+    rgba(10, 10, 10, 0.32) 100%
+  );
+}
+
 /* ---------- 텍스트 ---------- */
 .hero-section__content {
   position: relative;

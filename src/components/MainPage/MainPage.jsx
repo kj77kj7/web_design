@@ -34,26 +34,50 @@ const sections = [
   {
     image: img02,
     theme: 'dark',
-    align: 'left',
-    eyebrow: 'COLLECTION 01',
-    title: 'Clarity',
-    desc: '가장 순수한 순간을 담아냅니다.',
+    align: 'center',
+    vAlign: 'bottom',
+    eyebrow: '귀걸이',
+    titleFont: 'kr',
+    title: (
+      <>
+        흐르는 대신 당신에게 머물기로 한{' '}
+        <span className="font-serif">EARRING</span>
+      </>
+    ),
+    cta: '알아보기',
+    ctaVariant: 'link',
   },
   {
     image: img03,
     theme: 'dark',
     align: 'center',
-    eyebrow: 'SIGNATURE PIECE',
-    title: 'Crystallized',
-    desc: '물방울이 응결되어 하나의 목걸이가 되다.',
+    vAlign: 'bottom',
+    eyebrow: '목걸이',
+    titleFont: 'kr',
+    title: (
+      <>
+        가장 맑은 순간을 빚어낸{' '}
+        <span className="font-serif">NECKLACE</span>
+      </>
+    ),
+    cta: '알아보기',
+    ctaVariant: 'link',
   },
   {
     image: img04,
-    theme: 'light',
-    align: 'left',
-    eyebrow: 'SIGNATURE',
-    title: 'Liquid Grace',
-    desc: '흐르는 듯한 실루엣의 시그니처 라인.',
+    theme: 'dark',
+    align: 'center',
+    vAlign: 'bottom',
+    overlay: 'soft',
+    eyebrow: '패션',
+    titleFont: 'kr',
+    title: (
+      <>
+        몸에 머무는 파도 <span className="font-serif">WEAR</span>
+      </>
+    ),
+    cta: '알아보기',
+    ctaVariant: 'link',
   },
   {
     image: img05,

@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react'
  * - titleFont  : 'display'(Baskerville) | 'kr'(윤고딕)
  * - cta        : (선택) 버튼/링크 문구
  * - ctaVariant : 'button' | 'link'
+ * - overlay    : (선택) 'soft' - 밝은 배경에 흰 글씨를 얹을 때, 기본 어두운 오버레이 대신 하단에만 옅은 스크림을 깐다
  */
 function HeroSection({
   image,
@@ -22,6 +23,7 @@ function HeroSection({
   titleFont = 'display',
   cta,
   ctaVariant = 'button',
+  overlay,
 }) {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
@@ -48,6 +50,7 @@ function HeroSection({
     `hero-section--${align}`,
     `hero-section--v${vAlign}`,
     titleFont === 'kr' ? 'hero-section--kr' : '',
+    overlay ? `hero-section--overlay-${overlay}` : '',
     visible ? 'is-visible' : '',
   ]
     .filter(Boolean)
