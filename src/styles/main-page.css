@@ -1,0 +1,207 @@
+/* 메인 페이지 - 풀스크린 스크롤 (기준 해상도 1920 x 1080) */
+
+.main-page {
+  width: 100%;
+}
+
+/* 세로로 나열되는 풀스크린 섹션이 부드럽게 걸리도록 */
+html {
+  scroll-snap-type: y proximity;
+}
+
+/* ---------- 섹션 ---------- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.hero-section--left {
+  justify-content: flex-start;
+}
+.hero-section--center {
+  justify-content: center;
+  text-align: center;
+}
+.hero-section--right {
+  justify-content: flex-end;
+}
+
+/* 배경 이미지 */
+.hero-section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 텍스트 가독성용 오버레이 */
+.hero-section__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-section--dark .hero-section__overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 0.65) 0%,
+    rgba(10, 10, 10, 0.2) 45%,
+    rgba(10, 10, 10, 0) 75%
+  );
+}
+.hero-section--dark.hero-section--right .hero-section__overlay {
+  background: linear-gradient(
+    270deg,
+    rgba(10, 10, 10, 0.65) 0%,
+    rgba(10, 10, 10, 0.2) 45%,
+    rgba(10, 10, 10, 0) 75%
+  );
+}
+.hero-section--dark.hero-section--center .hero-section__overlay {
+  background:
+    radial-gradient(60% 55% at 50% 50%, rgba(10, 10, 10, 0.45), rgba(10, 10, 10, 0)),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.1) 0%, rgba(10, 10, 10, 0.4) 100%);
+}
+.hero-section--light .hero-section__overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(246, 244, 240, 0.78) 0%,
+    rgba(246, 244, 240, 0.25) 45%,
+    rgba(246, 244, 240, 0) 75%
+  );
+}
+
+/* ---------- 텍스트 ---------- */
+.hero-section__content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  padding: 0 clamp(24px, 6.7vw, 128px);
+  /* 스크롤 진입 시 페이드업 */
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+.hero-section--center .hero-section__content {
+  max-width: 820px;
+}
+.hero-section.is-visible .hero-section__content {
+  opacity: 1;
+  transform: none;
+}
+
+.hero-section--dark {
+  color: var(--color-light);
+}
+.hero-section--dark .hero-section__content {
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+}
+.hero-section--light {
+  color: var(--color-dark);
+}
+
+.hero-section__eyebrow {
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: clamp(11px, 0.73vw, 14px);
+  margin-bottom: clamp(16px, 1.6vw, 28px);
+  opacity: 0.85;
+}
+
+.hero-section__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 96px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+}
+
+.hero-section__desc {
+  font-family: var(--font-kr-light);
+  font-size: clamp(15px, 1.15vw, 22px);
+  line-height: 1.7;
+  margin-top: clamp(16px, 1.6vw, 28px);
+  opacity: 0.92;
+}
+
+.hero-section__cta {
+  margin-top: clamp(24px, 2vw, 40px);
+  padding: clamp(12px, 0.9vw, 16px) clamp(28px, 2.2vw, 44px);
+  font-family: var(--font-kr);
+  font-size: clamp(13px, 0.9vw, 16px);
+  letter-spacing: 0.05em;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  cursor: pointer;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+.hero-section--dark .hero-section__cta:hover {
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+.hero-section--light .hero-section__cta:hover {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+/* ---------- footer (임시) ---------- */
+.site-footer {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--color-dark);
+  color: var(--color-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 56px);
+  letter-spacing: 0.1em;
+}
+.site-footer__note {
+  font-family: var(--font-kr-light);
+  font-size: 14px;
+  opacity: 0.45;
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 768px) {
+  .hero-section__content {
+    max-width: 100%;
+    padding: 0 24px;
+  }
+  .hero-section--dark .hero-section__overlay,
+  .hero-section--light .hero-section__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.15) 0%,
+      rgba(10, 10, 10, 0.55) 100%
+    );
+  }
+  .hero-section--light .hero-section__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(246, 244, 240, 0.2) 0%,
+      rgba(246, 244, 240, 0.7) 100%
+    );
+  }
+}
