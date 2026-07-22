@@ -7,8 +7,14 @@ API를 추가/변경할 때마다 백엔드 세션이 이 문서를 함께 업�
 
 ### 상품 (Store / sub2 페이지)
 
-> 상태: **FE 제안 / 백엔드 구현 대기.** 프론트 Store 페이지가 소비할 스펙을 프론트 세션이 먼저 정의함.
+> 상태: **구현 완료 (백엔드).** 프론트 Store 페이지가 소비할 스펙을 프론트 세션이 먼저 정의 → 백엔드 세션이 구현.
 > 이미지 파일은 현재 프론트 번들(`src/assets/images/products/`)에 존재. 백엔드는 `image` 값으로 **파일명**만 내려주고, 프론트가 번들 에셋에 매핑(추후 정적 서빙으로 전환 가능).
+>
+> **로컬 실행법**
+> - 백엔드: `npm run server` → `http://localhost:3001` (Express + Node 내장 `node:sqlite`, 최초 실행 시 시드 11건 자동 적재)
+> - 프론트: `npm run dev` (5173) — `vite.config.js`에 `/api → http://localhost:3001` 프록시 설정 완료
+> - 따라서 프론트는 상대경로 그대로 `fetch('/api/products')` 사용하면 됨 (CORS도 백엔드에서 `*` 허용)
+> - `:no`가 정수가 아니면 400, 없는 상품이면 404 (`{ "error": ... }`)
 
 **GET /api/products**
 - 설명: Store 페이지에 노출할 상품 목록 전체
@@ -55,3 +61,4 @@ API를 추가/변경할 때마다 백엔드 세션이 이 문서를 함께 업�
 
 ## 변경 이력
 - 2026-07-22 - 상품 API(GET /api/products, /api/products/:no) 및 Product 모델·시드 11건 정의 (FE 제안, 백엔드 구현 대기) - 프론트엔드 세션
+- 2026-07-22 - 상품 API 구현 완료. Express + Node 내장 `node:sqlite`(`better-sqlite3`는 이 환경 네이티브 빌드 실패로 대체), 시드 11건 DB 적재, `npm run server`(포트 3001) + Vite `/api` 프록시 연동. 400/404 처리 추가 - 백엔드 세션
