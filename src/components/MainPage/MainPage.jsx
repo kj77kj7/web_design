@@ -1,5 +1,8 @@
+import { useEffect } from 'react'
 import Navbar from '../Navbar/Navbar'
 import HeroSection from './HeroSection'
+import Footer from '../Footer/Footer'
+import { initRipples } from '../../lib/initRipples'
 import img01 from '../../assets/images/hero/01.jpg'
 import img02 from '../../assets/images/hero/02.jpg'
 import img03 from '../../assets/images/hero/03.jpg'
@@ -118,7 +121,25 @@ const sections = [
   },
 ]
 
+// 물결(ripples) 효과 on/off. 작업 편의를 위해 잠시 꺼둔 상태 — 다시 켜려면 true 로.
+const RIPPLES_ENABLED = false
+
 function MainPage() {
+  useEffect(() => {
+    if (!RIPPLES_ENABLED) return
+    let cleanup
+    // 배경 이미지 레이아웃이 잡힌 뒤 물결 초기화
+    const timer = setTimeout(() => {
+      initRipples().then((fn) => {
+        cleanup = fn
+      })
+    }, 300)
+    return () => {
+      clearTimeout(timer)
+      if (cleanup) cleanup()
+    }
+  }, [])
+
   return (
     <main className="main-page">
       <Navbar />
@@ -126,11 +147,7 @@ function MainPage() {
         <HeroSection key={index} {...section} />
       ))}
 
-      {/* TODO: footer 는 추후 별도로 전달받아 구성 */}
-      <footer className="site-footer">
-        <p className="site-footer__brand">NIHILISM</p>
-        <p className="site-footer__note">footer 영역 (추후 구성 예정)</p>
-      </footer>
+      <Footer />
     </main>
   )
 }

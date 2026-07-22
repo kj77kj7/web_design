@@ -1,0 +1,214 @@
+/* 메인 페이지 footer (밝은 배경, 기준 해상도 1920) */
+
+.site-footer {
+  background: #ffffff;
+  color: #1d1d1d;
+  font-family: var(--font-kr-light);
+  border-top: 1px solid #dadada;
+}
+
+.site-footer__inner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: clamp(48px, 6.25vw, 120px) clamp(24px, 5.7vw, 110px) clamp(40px, 3vw, 56px);
+}
+
+/* ---------- 상단: 문의 / 매장 검색 ---------- */
+.site-footer__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 90px);
+}
+
+.site-footer__heading {
+  font-size: 14px;
+  font-weight: 400;
+  color: #1d1d1d;
+  margin-bottom: 18px;
+}
+
+.site-footer__help-body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #5c5c5c;
+}
+
+.site-footer__search {
+  position: relative;
+  max-width: 284px;
+}
+.site-footer__search-input {
+  width: 100%;
+  padding: 6px 28px 8px 0;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1d1d1d;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #7b8487;
+  outline: none;
+}
+.site-footer__search-input::placeholder {
+  color: #5c5c5c;
+}
+.site-footer__search-btn {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  display: inline-flex;
+  padding: 0;
+  color: #7b8487;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- 중단: 링크 컬럼 ---------- */
+.site-footer__links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: clamp(32px, 5vw, 90px);
+  margin-top: clamp(40px, 3.6vw, 64px);
+  padding-top: clamp(32px, 2.6vw, 48px);
+  border-top: 1px solid #dadada;
+}
+
+.site-footer__col-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 26px;
+}
+
+.site-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.site-footer__link,
+.site-footer__connect-link {
+  font-size: 16px;
+  color: #1d1d1d;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.site-footer__link:hover {
+  color: #000000;
+}
+
+.site-footer__connect-text {
+  font-size: 16px;
+  color: #1d1d1d;
+  line-height: 1.5;
+}
+.site-footer__connect-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- 하단: 소셜 / 브랜드 / 국가·언어 ---------- */
+.site-footer__bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  margin-top: clamp(56px, 6vw, 110px);
+}
+
+.site-footer__social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-self: start;
+}
+.site-footer__social-link {
+  font-size: 14px;
+  color: #1d1d1d;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.site-footer__social-link:hover {
+  opacity: 0.6;
+}
+
+.site-footer__brand {
+  justify-self: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(24px, 2vw, 34px);
+  letter-spacing: 0.02em;
+  color: #1d1d1d;
+}
+
+.site-footer__locale {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-family: inherit;
+  font-size: 14px;
+  color: #5c5c5c;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.site-footer__locale-value {
+  color: #1d1d1d;
+}
+.site-footer__locale svg {
+  color: #1d1d1d;
+}
+
+/* ---------- 최하단: 사업자 정보 / 고지 ---------- */
+.site-footer__legal {
+  margin-top: clamp(28px, 2.4vw, 40px);
+  padding-top: clamp(20px, 1.6vw, 28px);
+  border-top: 1px solid #dadada;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.site-footer__legal-line {
+  font-size: 11px;
+  line-height: 1.55;
+  color: #5c5c5c;
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 900px) {
+  .site-footer__top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .site-footer__links {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 48px;
+  }
+  .site-footer__bar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 28px;
+  }
+  .site-footer__social {
+    justify-self: center;
+    justify-content: center;
+  }
+  .site-footer__locale {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer__links {
+    grid-template-columns: 1fr;
+  }
+}

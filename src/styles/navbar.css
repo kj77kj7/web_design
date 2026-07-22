@@ -6,41 +6,16 @@
   left: 0;
   right: 0;
   z-index: 100;
-  color: var(--color-light);
-  /* 상단(히어로 위)에서는 투명 + 가독성용 상단 그라데이션 */
-  background: transparent;
-  transition:
-    background-color 0.4s ease,
-    backdrop-filter 0.4s ease,
-    border-color 0.4s ease;
-  border-bottom: 1px solid transparent;
-}
-.navbar::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
-  opacity: 1;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-/* 스크롤 시 반투명 배경으로 전환 (밝은 섹션 위에서도 가독성 확보) */
-.navbar.is-scrolled {
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(12px);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-.navbar.is-scrolled::before {
-  opacity: 0;
+  color: #ffffff;
+  /* 은빛 반투명 바 (스크롤 상태와 무관하게 고정) */
+  background: rgba(192, 192, 192, 0.21);
 }
 
 .navbar__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: clamp(56px, 4.7vw, 76px);
+  height: 64px;
   padding: 0 clamp(24px, 2.5vw, 48px);
   font-family: var(--font-display); /* Baskerville */
 }
@@ -63,7 +38,7 @@
 .navbar__menu a {
   color: inherit;
   text-decoration: none;
-  font-size: clamp(14px, 0.94vw, 18px);
+  font-size: clamp(15px, 1.04vw, 20px);
   letter-spacing: 0.04em;
   opacity: 0.9;
   transition: opacity 0.25s ease;
