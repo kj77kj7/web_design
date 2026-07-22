@@ -17,9 +17,10 @@ function ProductCard({ product }) {
           <div className="product-card__media-fallback" aria-hidden="true" />
         )}
       </div>
-      <p className="product-card__label">
-        {name} <span className="product-card__price">{formatPrice(price, currency)}</span>
-      </p>
+      <div className="product-card__label">
+        <span className="product-card__name">{name}</span>
+        <span className="product-card__price">{formatPrice(price, currency)}</span>
+      </div>
       {isNew && <p className="product-card__tag">NEW IN</p>}
     </article>
   )

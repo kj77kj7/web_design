@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import ProductCard from './ProductCard'
@@ -16,6 +16,8 @@ import '../../styles/store-page.css'
 function StorePage() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [sort, setSort] = useState('default')
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
     let active = true
@@ -29,6 +31,15 @@ function StorePage() {
       active = false
     }
   }, [])
+
+  // 검색(이름 부분일치) → 정렬(가격 오름/내림). 원본 순서는 백엔드 no 오름차순.
+  const displayed = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    let list = q ? products.filter((p) => p.name.toLowerCase().includes(q)) : products
+    if (sort === 'price_asc') list = [...list].sort((a, b) => a.price - b.price)
+    else if (sort === 'price_desc') list = [...list].sort((a, b) => b.price - a.price)
+    return list
+  }, [products, sort, query])
 
   return (
     <div className="store-page">
@@ -44,15 +55,44 @@ function StorePage() {
 
       <div className="store-toolbar">
         <span className="store-toolbar__collections">Collections</span>
-        <span className="store-toolbar__count">{products.length} Products</span>
-        <span className="store-toolbar__sort">Sort By</span>
+        <span className="store-toolbar__count">{displayed.length} Products</span>
+        <div className="store-toolbar__controls">
+          <div className="store-search">
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+              <circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" strokeWidth="1" />
+              <line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" strokeWidth="1" />
+            </svg>
+            <input
+              type="search"
+              className="store-search__input"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="상품 검색"
+              aria-label="상품 검색"
+            />
+          </div>
+          <select
+            className="store-sort"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+            aria-label="정렬 기준"
+          >
+            <option value="default">Sort By</option>
+            <option value="price_asc">가격 낮은순</option>
+            <option value="price_desc">가격 높은순</option>
+          </select>
+        </div>
       </div>
 
       <section className="store-grid" aria-busy={loading}>
-        {products.map((product) => (
+        {displayed.map((product) => (
           <ProductCard key={product.no} product={product} />
         ))}
       </section>
+
+      {!loading && displayed.length === 0 && (
+        <p className="store-empty">검색 결과가 없습니다.</p>
+      )}
 
       <Footer />
     </div>
