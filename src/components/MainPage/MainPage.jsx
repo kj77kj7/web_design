@@ -83,25 +83,38 @@ const sections = [
     image: img05,
     theme: 'dark',
     align: 'center',
-    title: 'Every Drop, A Detail',
-    desc: '작은 물방울 하나까지, 완벽을 향한 집착.',
+    vAlign: 'bottom',
+    eyebrow: 'PURE',
+    titleFont: 'kr',
+    title: '흐르는 시간을 둥글게 맺어',
+    cta: '알아보기',
+    ctaVariant: 'link',
   },
   {
     image: img06,
     theme: 'dark',
-    align: 'left',
-    eyebrow: 'FOR YOU',
-    title: 'In Her Light',
-    desc: '당신의 빛을 완성하는 주얼리.',
+    align: 'center',
+    vAlign: 'bottom',
+    eyebrow: '반지',
+    titleFont: 'kr',
+    title: (
+      <>
+        <span className="font-serif">WATERFUL RING</span> 손끝에서 찰랑이는 투명한 약속
+      </>
+    ),
+    cta: '알아보기',
+    ctaVariant: 'link',
   },
   {
     image: img07,
     theme: 'dark',
     align: 'center',
-    eyebrow: 'NEW ARRIVAL',
-    title: 'Nihilism',
-    desc: '지금, 새로운 컬렉션을 만나보세요.',
-    cta: '컬렉션 보기',
+    vAlign: 'bottom',
+    eyebrow: '선물',
+    titleFont: 'kr',
+    title: <span className="font-serif">EXCLUSIVE SERVICE</span>,
+    cta: '알아보기',
+    ctaVariant: 'link',
   },
 ]
 
