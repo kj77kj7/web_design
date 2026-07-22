@@ -1,8 +1,13 @@
 import '../../styles/navbar.css'
 
-function Navbar() {
+/**
+ * 상단 고정 메뉴바.
+ * - variant 'overlay'(기본): 히어로 위 은빛 반투명 바 (흰 글씨)
+ * - variant 'light'        : Store 등 밝은 페이지용 흰 배경 + 검정 글씨
+ */
+function Navbar({ variant = 'overlay' }) {
   return (
-    <header className="navbar">
+    <header className={`navbar navbar--${variant}`}>
       <nav className="navbar__inner">
         <ul className="navbar__menu navbar__menu--left">
           <li>
@@ -13,7 +18,7 @@ function Navbar() {
           </li>
         </ul>
 
-        <a href="#top" className="navbar__brand">
+        <a href="#" className="navbar__brand">
           Nihilism
         </a>
 

@@ -6,9 +6,19 @@
   left: 0;
   right: 0;
   z-index: 100;
+}
+
+/* 히어로 위 은빛 반투명 바 (흰 글씨) */
+.navbar--overlay {
   color: #ffffff;
-  /* 은빛 반투명 바 (스크롤 상태와 무관하게 고정) */
   background: rgba(192, 192, 192, 0.21);
+}
+
+/* Store 등 밝은 페이지용 — 흰 배경 + 검정 글씨 + 하단 경계선 */
+.navbar--light {
+  color: #000000;
+  background: #ffffff;
+  border-bottom: 1px solid #dadada;
 }
 
 .navbar__inner {
