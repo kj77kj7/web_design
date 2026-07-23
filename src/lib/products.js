@@ -55,3 +55,18 @@ export async function fetchProducts() {
     return SEED_PRODUCTS
   }
 }
+
+/**
+ * 단일 상품 조회 (상세 페이지). GET /api/products/:no 우선, 실패 시 시드 폴백.
+ * @returns 상품 객체 또는 null(없음)
+ */
+export async function fetchProduct(no) {
+  try {
+    const res = await fetch(`/api/products/${no}`)
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    return await res.json()
+  } catch (e) {
+    console.warn('[products] 상세 API 실패 — 시드 데이터로 폴백합니다.', e)
+    return SEED_PRODUCTS.find((p) => String(p.no) === String(no)) || null
+  }
+}

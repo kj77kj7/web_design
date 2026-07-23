@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import MainPage from './components/MainPage/MainPage'
 import StorePage from './components/StorePage/StorePage'
+import ProductDetailPage from './components/ProductDetail/ProductDetailPage'
 
 const getRoute = () => window.location.hash.replace(/^#\/?/, '').split('?')[0]
 
@@ -16,7 +17,11 @@ function App() {
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
 
-  return route === 'store' ? <StorePage /> : <MainPage />
+  const [page, param] = route.split('/')
+
+  if (page === 'product' && param) return <ProductDetailPage no={param} />
+  if (page === 'store') return <StorePage />
+  return <MainPage />
 }
 
 export default App
